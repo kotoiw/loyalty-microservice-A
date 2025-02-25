@@ -12,13 +12,11 @@ def get_database():
     CONNECTION_STRING = ("Your connection string")
     
     client = MongoClient(CONNECTION_STRING)
-    time.sleep(5000)
     try:
         client.admin.command('ping')
         print("Pinged your deployment. Successfully connected to MongoDB!")
     except Exception as e:
         print("Error connecting to MongoDB:", e)
-        time.sleep(5000)
         exit(1)
     
     return client['oms_db']
